@@ -3,6 +3,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'general/bloc/notification_actions.dart';
 import 'general/bloc/notification_bloc.dart';
 import 'general/extensions/kiwi_extension.dart';
+import 'general/pages/navigation_page.dart';
 import 'general/utils/injector.dart';
 import 'account/pages/auth_page.dart';
 
@@ -16,6 +17,7 @@ class Application extends StatelessWidgetWith<NotificationBloc> {
 
   @override
   Widget buildWith(BuildContext context, NotificationBloc notificationBloc) {
+    // @@??: Stateful and dispatch in initState?
     notificationBloc.dispatchAction(
       SetNavigatorKey(navigatorKey: _navigatorKey),
     );
@@ -24,7 +26,7 @@ class Application extends StatelessWidgetWith<NotificationBloc> {
       navigatorKey: _navigatorKey,
       title: 'The 12th Player',
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home: NavigationPage(),
     );
   }
 }
