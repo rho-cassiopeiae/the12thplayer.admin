@@ -1,9 +1,9 @@
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:kiwi/kiwi.dart';
 
-final Map<String, Object> _identifierToInstance = {};
+final Map<String, dynamic> _identifierToInstance = {};
 
-TDependency _resolve<TDependency extends Object>(
+TDependency _resolveDependency<TDependency>(
   String? dependencyInstanceIdentifier,
 ) {
   TDependency instance;
@@ -21,184 +21,46 @@ TDependency _resolve<TDependency extends Object>(
   return instance;
 }
 
-void _dispose(String dependencyInstanceIdentifier) {
+void disposeOfDependencyInstance(String dependencyInstanceIdentifier) {
   _identifierToInstance.remove(dependencyInstanceIdentifier);
 }
 
-mixin DependencyResolver<TDependency extends Object> {
-  TDependency resolve([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency>(dependencyInstanceIdentifier);
+abstract class StatelessWidgetWith<TDependency> extends StatelessWidget {
+  final String? dependencyInstanceIdentifier;
 
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver2<TDependency1 extends Object,
-    TDependency2 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver3<TDependency1 extends Object,
-    TDependency2 extends Object, TDependency3 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  TDependency3 resolve3([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency3>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver4<
-    TDependency1 extends Object,
-    TDependency2 extends Object,
-    TDependency3 extends Object,
-    TDependency4 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  TDependency3 resolve3([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency3>(dependencyInstanceIdentifier);
-
-  TDependency4 resolve4([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency4>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver5<
-    TDependency1 extends Object,
-    TDependency2 extends Object,
-    TDependency3 extends Object,
-    TDependency4 extends Object,
-    TDependency5 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  TDependency3 resolve3([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency3>(dependencyInstanceIdentifier);
-
-  TDependency4 resolve4([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency4>(dependencyInstanceIdentifier);
-
-  TDependency5 resolve5([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency5>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver6<
-    TDependency1 extends Object,
-    TDependency2 extends Object,
-    TDependency3 extends Object,
-    TDependency4 extends Object,
-    TDependency5 extends Object,
-    TDependency6 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  TDependency3 resolve3([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency3>(dependencyInstanceIdentifier);
-
-  TDependency4 resolve4([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency4>(dependencyInstanceIdentifier);
-
-  TDependency5 resolve5([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency5>(dependencyInstanceIdentifier);
-
-  TDependency6 resolve6([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency6>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-mixin DependencyResolver7<
-    TDependency1 extends Object,
-    TDependency2 extends Object,
-    TDependency3 extends Object,
-    TDependency4 extends Object,
-    TDependency5 extends Object,
-    TDependency6 extends Object,
-    TDependency7 extends Object> {
-  TDependency1 resolve1([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency1>(dependencyInstanceIdentifier);
-
-  TDependency2 resolve2([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency2>(dependencyInstanceIdentifier);
-
-  TDependency3 resolve3([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency3>(dependencyInstanceIdentifier);
-
-  TDependency4 resolve4([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency4>(dependencyInstanceIdentifier);
-
-  TDependency5 resolve5([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency5>(dependencyInstanceIdentifier);
-
-  TDependency6 resolve6([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency6>(dependencyInstanceIdentifier);
-
-  TDependency7 resolve7([String? dependencyInstanceIdentifier]) =>
-      _resolve<TDependency7>(dependencyInstanceIdentifier);
-
-  void disposeOfDependencyInstance(String dependencyInstanceIdentifier) =>
-      _dispose(dependencyInstanceIdentifier);
-}
-
-abstract class StatelessWidgetWith<TDependency extends Object>
-    extends StatelessWidget with DependencyResolver<TDependency> {
-  final String? _dependencyInstanceIdentifier;
-
-  StatelessWidgetWith([this._dependencyInstanceIdentifier]);
-
-  @override
-  Widget build(BuildContext context) {
-    return buildWith(context, resolve(_dependencyInstanceIdentifier));
-  }
-
-  Widget buildWith(BuildContext context, TDependency service);
-}
-
-abstract class StatelessWidgetWith2<TDependency1 extends Object,
-        TDependency2 extends Object> extends StatelessWidget
-    with DependencyResolver2<TDependency1, TDependency2> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-
-  StatelessWidgetWith2([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-  ]);
+  const StatelessWidgetWith({
+    Key? key,
+    this.dependencyInstanceIdentifier,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency>(dependencyInstanceIdentifier),
+    );
+  }
+
+  Widget buildWith(BuildContext context, TDependency service);
+}
+
+abstract class StatelessWidgetWith2<TDependency1, TDependency2>
+    extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+
+  const StatelessWidgetWith2({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return buildWith(
+      context,
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
     );
   }
 
@@ -209,28 +71,26 @@ abstract class StatelessWidgetWith2<TDependency1 extends Object,
   );
 }
 
-abstract class StatelessWidgetWith3<
-        TDependency1 extends Object,
-        TDependency2 extends Object,
-        TDependency3 extends Object> extends StatelessWidget
-    with DependencyResolver3<TDependency1, TDependency2, TDependency3> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-  final String? _dependencyInstanceIdentifier3;
+abstract class StatelessWidgetWith3<TDependency1, TDependency2, TDependency3>
+    extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+  final String? dependencyInstanceIdentifier3;
 
-  StatelessWidgetWith3([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-    this._dependencyInstanceIdentifier3,
-  ]);
+  const StatelessWidgetWith3({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+    this.dependencyInstanceIdentifier3,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
-      resolve3(_dependencyInstanceIdentifier3),
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3),
     );
   }
 
@@ -242,34 +102,29 @@ abstract class StatelessWidgetWith3<
   );
 }
 
-abstract class StatelessWidgetWith4<
-        TDependency1 extends Object,
-        TDependency2 extends Object,
-        TDependency3 extends Object,
-        TDependency4 extends Object> extends StatelessWidget
-    with
-        DependencyResolver4<TDependency1, TDependency2, TDependency3,
-            TDependency4> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-  final String? _dependencyInstanceIdentifier3;
-  final String? _dependencyInstanceIdentifier4;
+abstract class StatelessWidgetWith4<TDependency1, TDependency2, TDependency3,
+    TDependency4> extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+  final String? dependencyInstanceIdentifier3;
+  final String? dependencyInstanceIdentifier4;
 
-  StatelessWidgetWith4([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-    this._dependencyInstanceIdentifier3,
-    this._dependencyInstanceIdentifier4,
-  ]);
+  const StatelessWidgetWith4({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+    this.dependencyInstanceIdentifier3,
+    this.dependencyInstanceIdentifier4,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
-      resolve3(_dependencyInstanceIdentifier3),
-      resolve4(_dependencyInstanceIdentifier4),
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3),
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4),
     );
   }
 
@@ -282,38 +137,32 @@ abstract class StatelessWidgetWith4<
   );
 }
 
-abstract class StatelessWidgetWith5<
-        TDependency1 extends Object,
-        TDependency2 extends Object,
-        TDependency3 extends Object,
-        TDependency4 extends Object,
-        TDependency5 extends Object> extends StatelessWidget
-    with
-        DependencyResolver5<TDependency1, TDependency2, TDependency3,
-            TDependency4, TDependency5> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-  final String? _dependencyInstanceIdentifier3;
-  final String? _dependencyInstanceIdentifier4;
-  final String? _dependencyInstanceIdentifier5;
+abstract class StatelessWidgetWith5<TDependency1, TDependency2, TDependency3,
+    TDependency4, TDependency5> extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+  final String? dependencyInstanceIdentifier3;
+  final String? dependencyInstanceIdentifier4;
+  final String? dependencyInstanceIdentifier5;
 
-  StatelessWidgetWith5([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-    this._dependencyInstanceIdentifier3,
-    this._dependencyInstanceIdentifier4,
-    this._dependencyInstanceIdentifier5,
-  ]);
+  const StatelessWidgetWith5({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+    this.dependencyInstanceIdentifier3,
+    this.dependencyInstanceIdentifier4,
+    this.dependencyInstanceIdentifier5,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
-      resolve3(_dependencyInstanceIdentifier3),
-      resolve4(_dependencyInstanceIdentifier4),
-      resolve5(_dependencyInstanceIdentifier5),
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3),
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4),
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5),
     );
   }
 
@@ -327,42 +176,35 @@ abstract class StatelessWidgetWith5<
   );
 }
 
-abstract class StatelessWidgetWith6<
-        TDependency1 extends Object,
-        TDependency2 extends Object,
-        TDependency3 extends Object,
-        TDependency4 extends Object,
-        TDependency5 extends Object,
-        TDependency6 extends Object> extends StatelessWidget
-    with
-        DependencyResolver6<TDependency1, TDependency2, TDependency3,
-            TDependency4, TDependency5, TDependency6> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-  final String? _dependencyInstanceIdentifier3;
-  final String? _dependencyInstanceIdentifier4;
-  final String? _dependencyInstanceIdentifier5;
-  final String? _dependencyInstanceIdentifier6;
+abstract class StatelessWidgetWith6<TDependency1, TDependency2, TDependency3,
+    TDependency4, TDependency5, TDependency6> extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+  final String? dependencyInstanceIdentifier3;
+  final String? dependencyInstanceIdentifier4;
+  final String? dependencyInstanceIdentifier5;
+  final String? dependencyInstanceIdentifier6;
 
-  StatelessWidgetWith6([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-    this._dependencyInstanceIdentifier3,
-    this._dependencyInstanceIdentifier4,
-    this._dependencyInstanceIdentifier5,
-    this._dependencyInstanceIdentifier6,
-  ]);
+  const StatelessWidgetWith6({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+    this.dependencyInstanceIdentifier3,
+    this.dependencyInstanceIdentifier4,
+    this.dependencyInstanceIdentifier5,
+    this.dependencyInstanceIdentifier6,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
-      resolve3(_dependencyInstanceIdentifier3),
-      resolve4(_dependencyInstanceIdentifier4),
-      resolve5(_dependencyInstanceIdentifier5),
-      resolve6(_dependencyInstanceIdentifier6),
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3),
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4),
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5),
+      _resolveDependency<TDependency6>(dependencyInstanceIdentifier6),
     );
   }
 
@@ -378,45 +220,43 @@ abstract class StatelessWidgetWith6<
 }
 
 abstract class StatelessWidgetWith7<
-        TDependency1 extends Object,
-        TDependency2 extends Object,
-        TDependency3 extends Object,
-        TDependency4 extends Object,
-        TDependency5 extends Object,
-        TDependency6 extends Object,
-        TDependency7 extends Object> extends StatelessWidget
-    with
-        DependencyResolver7<TDependency1, TDependency2, TDependency3,
-            TDependency4, TDependency5, TDependency6, TDependency7> {
-  final String? _dependencyInstanceIdentifier1;
-  final String? _dependencyInstanceIdentifier2;
-  final String? _dependencyInstanceIdentifier3;
-  final String? _dependencyInstanceIdentifier4;
-  final String? _dependencyInstanceIdentifier5;
-  final String? _dependencyInstanceIdentifier6;
-  final String? _dependencyInstanceIdentifier7;
+    TDependency1,
+    TDependency2,
+    TDependency3,
+    TDependency4,
+    TDependency5,
+    TDependency6,
+    TDependency7> extends StatelessWidget {
+  final String? dependencyInstanceIdentifier1;
+  final String? dependencyInstanceIdentifier2;
+  final String? dependencyInstanceIdentifier3;
+  final String? dependencyInstanceIdentifier4;
+  final String? dependencyInstanceIdentifier5;
+  final String? dependencyInstanceIdentifier6;
+  final String? dependencyInstanceIdentifier7;
 
-  StatelessWidgetWith7([
-    this._dependencyInstanceIdentifier1,
-    this._dependencyInstanceIdentifier2,
-    this._dependencyInstanceIdentifier3,
-    this._dependencyInstanceIdentifier4,
-    this._dependencyInstanceIdentifier5,
-    this._dependencyInstanceIdentifier6,
-    this._dependencyInstanceIdentifier7,
-  ]);
+  const StatelessWidgetWith7({
+    Key? key,
+    this.dependencyInstanceIdentifier1,
+    this.dependencyInstanceIdentifier2,
+    this.dependencyInstanceIdentifier3,
+    this.dependencyInstanceIdentifier4,
+    this.dependencyInstanceIdentifier5,
+    this.dependencyInstanceIdentifier6,
+    this.dependencyInstanceIdentifier7,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return buildWith(
       context,
-      resolve1(_dependencyInstanceIdentifier1),
-      resolve2(_dependencyInstanceIdentifier2),
-      resolve3(_dependencyInstanceIdentifier3),
-      resolve4(_dependencyInstanceIdentifier4),
-      resolve5(_dependencyInstanceIdentifier5),
-      resolve6(_dependencyInstanceIdentifier6),
-      resolve7(_dependencyInstanceIdentifier7),
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1),
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2),
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3),
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4),
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5),
+      _resolveDependency<TDependency6>(dependencyInstanceIdentifier6),
+      _resolveDependency<TDependency7>(dependencyInstanceIdentifier7),
     );
   }
 
@@ -430,4 +270,141 @@ abstract class StatelessWidgetWith7<
     TDependency6 service6,
     TDependency7 service7,
   );
+}
+
+abstract class StateWith<TWidget extends StatefulWidget, TDependency>
+    extends State<TWidget> {
+  String? get dependencyInstanceIdentifier => null;
+
+  late final TDependency service =
+      _resolveDependency<TDependency>(dependencyInstanceIdentifier);
+}
+
+abstract class StateWith2<TWidget extends StatefulWidget, TDependency1,
+    TDependency2> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+}
+
+abstract class StateWith3<TWidget extends StatefulWidget, TDependency1,
+    TDependency2, TDependency3> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+  String? get dependencyInstanceIdentifier3 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+  late final TDependency3 service3 =
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3);
+}
+
+abstract class StateWith4<TWidget extends StatefulWidget, TDependency1,
+    TDependency2, TDependency3, TDependency4> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+  String? get dependencyInstanceIdentifier3 => null;
+  String? get dependencyInstanceIdentifier4 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+  late final TDependency3 service3 =
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3);
+  late final TDependency4 service4 =
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4);
+}
+
+abstract class StateWith5<
+    TWidget extends StatefulWidget,
+    TDependency1,
+    TDependency2,
+    TDependency3,
+    TDependency4,
+    TDependency5> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+  String? get dependencyInstanceIdentifier3 => null;
+  String? get dependencyInstanceIdentifier4 => null;
+  String? get dependencyInstanceIdentifier5 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+  late final TDependency3 service3 =
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3);
+  late final TDependency4 service4 =
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4);
+  late final TDependency5 service5 =
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5);
+}
+
+abstract class StateWith6<
+    TWidget extends StatefulWidget,
+    TDependency1,
+    TDependency2,
+    TDependency3,
+    TDependency4,
+    TDependency5,
+    TDependency6> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+  String? get dependencyInstanceIdentifier3 => null;
+  String? get dependencyInstanceIdentifier4 => null;
+  String? get dependencyInstanceIdentifier5 => null;
+  String? get dependencyInstanceIdentifier6 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+  late final TDependency3 service3 =
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3);
+  late final TDependency4 service4 =
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4);
+  late final TDependency5 service5 =
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5);
+  late final TDependency6 service6 =
+      _resolveDependency<TDependency6>(dependencyInstanceIdentifier6);
+}
+
+abstract class StateWith7<
+    TWidget extends StatefulWidget,
+    TDependency1,
+    TDependency2,
+    TDependency3,
+    TDependency4,
+    TDependency5,
+    TDependency6,
+    TDependency7> extends State<TWidget> {
+  String? get dependencyInstanceIdentifier1 => null;
+  String? get dependencyInstanceIdentifier2 => null;
+  String? get dependencyInstanceIdentifier3 => null;
+  String? get dependencyInstanceIdentifier4 => null;
+  String? get dependencyInstanceIdentifier5 => null;
+  String? get dependencyInstanceIdentifier6 => null;
+  String? get dependencyInstanceIdentifier7 => null;
+
+  late final TDependency1 service1 =
+      _resolveDependency<TDependency1>(dependencyInstanceIdentifier1);
+  late final TDependency2 service2 =
+      _resolveDependency<TDependency2>(dependencyInstanceIdentifier2);
+  late final TDependency3 service3 =
+      _resolveDependency<TDependency3>(dependencyInstanceIdentifier3);
+  late final TDependency4 service4 =
+      _resolveDependency<TDependency4>(dependencyInstanceIdentifier4);
+  late final TDependency5 service5 =
+      _resolveDependency<TDependency5>(dependencyInstanceIdentifier5);
+  late final TDependency6 service6 =
+      _resolveDependency<TDependency6>(dependencyInstanceIdentifier6);
+  late final TDependency7 service7 =
+      _resolveDependency<TDependency7>(dependencyInstanceIdentifier7);
 }

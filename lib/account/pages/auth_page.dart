@@ -1,21 +1,21 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../general/extensions/kiwi_extension.dart';
 import '../bloc/account_actions.dart';
 import '../bloc/account_bloc.dart';
-import '../../general/extensions/kiwi_extension.dart';
 import '../bloc/account_states.dart';
 import '../enums/auth_page_mode.dart';
 
-class AuthPage extends StatefulWidget with DependencyResolver<AccountBloc> {
+class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
   @override
-  _AuthPageState createState() => _AuthPageState(resolve());
+  _AuthPageState createState() => _AuthPageState();
 }
 
-class _AuthPageState extends State<AuthPage> {
-  final AccountBloc _accountBloc;
+class _AuthPageState extends StateWith<AuthPage, AccountBloc> {
+  AccountBloc get _accountBloc => service;
 
   final TextStyle _labelStyle = GoogleFonts.openSans(
     color: Colors.white,
@@ -32,8 +32,6 @@ class _AuthPageState extends State<AuthPage> {
   String? _confirmationCode;
   String? _payload;
   String? _signature;
-
-  _AuthPageState(this._accountBloc);
 
   @override
   void initState() {

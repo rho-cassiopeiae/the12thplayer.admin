@@ -26,7 +26,7 @@ class Application extends StatelessWidgetWith<NotificationBloc> {
       navigatorKey: _navigatorKey,
       title: 'The 12th Player',
       debugShowCheckedModeBanner: false,
-      home: NavigationPage(),
+      home: AuthPage(),
     );
   }
 }
